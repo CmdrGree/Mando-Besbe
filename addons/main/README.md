@@ -1,7 +1,7 @@
-MOD_PREFIX_main
+mndb_main
 ===================
 
-Main Addon for MOD_TITLE
+Main Addon for Mando Besbe
 
 ## Maintainers
 
