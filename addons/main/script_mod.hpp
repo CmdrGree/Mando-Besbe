@@ -1,6 +1,6 @@
 #define MAINPREFIX z
-#define PREFIX MOD_PREFIX
-#define MOD_NAME MOD_TITLE
+#define PREFIX mndb
+#define MOD_NAME Mando Besbe
 #define AUTHOR "DartRuffian"
 
 #define REQUIRED_VERSION 2.18
