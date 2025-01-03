@@ -1,5 +1,5 @@
 name = "Mando Besbe"
-author = "DartRuffian"
+author = "CmdrGree"
 prefix = "mndb"
 mainprefix = "z"
 
@@ -19,4 +19,4 @@ include = [
 exclude = []
 
 [properties]
-author = "DartRuffian"
+author = "CmdrGree"

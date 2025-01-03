@@ -5,20 +5,20 @@
             <English>Main</English>
         </Key>
         <Key ID="STR_mndb_main_url">
-            <English>https://github.com/DartsArmaMods/Mando-Besbe</English>
-            <Czech>https://github.com/DartsArmaMods/Mando-Besbe</Czech>
-            <French>https://github.com/DartsArmaMods/Mando-Besbe</French>
-            <Spanish>https://github.com/DartsArmaMods/Mando-Besbe</Spanish>
-            <Italian>https://github.com/DartsArmaMods/Mando-Besbe</Italian>
-            <Polish>https://github.com/DartsArmaMods/Mando-Besbe</Polish>
-            <Portuguese>https://github.com/DartsArmaMods/Mando-Besbe</Portuguese>
-            <Russian>https://github.com/DartsArmaMods/Mando-Besbe</Russian>
-            <German>https://github.com/DartsArmaMods/Mando-Besbe</German>
-            <Korean>https://github.com/DartsArmaMods/Mando-Besbe</Korean>
-            <Japanese>https://github.com/DartsArmaMods/Mando-Besbe</Japanese>
-            <Chinese>https://github.com/DartsArmaMods/Mando-Besbe</Chinese>
-            <Chinesesimp>https://github.com/DartsArmaMods/Mando-Besbe</Chinesesimp>
-            <Turkish>https://github.com/DartsArmaMods/Mando-Besbe</Turkish>
+            <English>https://github.com/CmdrGree/Mando-Besbe</English>
+            <Czech>https://github.com/CmdrGree/Mando-Besbe</Czech>
+            <French>https://github.com/CmdrGree/Mando-Besbe</French>
+            <Spanish>https://github.com/CmdrGree/Mando-Besbe</Spanish>
+            <Italian>https://github.com/CmdrGree/Mando-Besbe</Italian>
+            <Polish>https://github.com/CmdrGree/Mando-Besbe</Polish>
+            <Portuguese>https://github.com/CmdrGree/Mando-Besbe</Portuguese>
+            <Russian>https://github.com/CmdrGree/Mando-Besbe</Russian>
+            <German>https://github.com/CmdrGree/Mando-Besbe</German>
+            <Korean>https://github.com/CmdrGree/Mando-Besbe</Korean>
+            <Japanese>https://github.com/CmdrGree/Mando-Besbe</Japanese>
+            <Chinese>https://github.com/CmdrGree/Mando-Besbe</Chinese>
+            <Chinesesimp>https://github.com/CmdrGree/Mando-Besbe</Chinesesimp>
+            <Turkish>https://github.com/CmdrGree/Mando-Besbe</Turkish>
         </Key>
     </Package>
 </Project>

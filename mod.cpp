@@ -1,4 +1,4 @@
-author = "DartRuffian";
+author = "CmdrGree";
 name = "Mando Besbe";
 description = "Mando Besbe - Version 0.0.0";
 overview = "";
