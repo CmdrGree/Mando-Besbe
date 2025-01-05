@@ -8,19 +8,12 @@ class CfgPatches {
         name = COMPONENT_NAME;
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {
-            "mndb_main"
+            "mndb_main",
+            "mndb_common"
         };
         units[] = {};
         weapons[] = {};
         VERSION_CONFIG;
-    };
-};
-
-class CfgEditorCategories
-{
-    class GVAR(Props)
-    {
-        displayName = "Mando-Besbe Props";
     };
 };
 
