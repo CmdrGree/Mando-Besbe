@@ -92,4 +92,31 @@ class CfgUserActions {
     };
 };
 
+class CfgSounds {
+    class GVAR(Activate) {
+        name = "Whistling Birds Activate";                        // display name
+        sound[] = { QPATHTOF(sounds\wbActivate.ogg), 1, 1, 10 };    // file, volume, pitch, maxDistance
+        titles[] = {0, ""};
+    };
+    class GVAR(Launch) {
+        name = "Whistling Birds Launch";                        // display name
+        sound[] = { QPATHTOF(sounds\wbLaunch.ogg), 1, 1, 20 };    // file, volume, pitch, maxDistance
+        titles[] = {0, ""};
+    };
+    class GVAR(Hit1) {
+        name = "Whistling Birds Hit 1";                        // display name
+        sound[] = { QPATHTOF(sounds\wbHit1.ogg), 1, 1, 20 };    // file, volume, pitch, maxDistance
+        titles[] = {0, ""};
+    };
+    class GVAR(Hit2) {
+        name = "Whistling Birds Hit 2";                        // display name
+        sound[] = { QPATHTOF(sounds\wbHit2.ogg), 1, 1, 20 };    // file, volume, pitch, maxDistance
+        titles[] = {0, ""};
+    };
+    class GVAR(Hit3) {
+        name = "Whistling Birds Hit 3";                        // display name
+        sound[] = { QPATHTOF(sounds\wbHit3.ogg), 1, 1, 20 };    // file, volume, pitch, maxDistance
+    };
+};
+
 #include "CfgEventHandlers.hpp"
