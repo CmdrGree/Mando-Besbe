@@ -1,16 +1,16 @@
 #include "..\script_component.hpp"
 /*
-	 * Author: You!
-	 * An empty function that does nothing.
+	 * Author: CmdrGree
+	 * Gets a target and hit offset.
 	 *
 	 * Arguments:
 	 * None
 	 *
 	 * Return Value:
-	 * None
+	 * Array - [target, isVehicle, offset]
 	 *
 	 * Example:
-	 * [] call mndb_addonName_fnc_empty;
+	 * [] call FUNC(get_target_and_offset);
 	 *
 	 * Public: No
  */
