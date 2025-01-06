@@ -16,8 +16,7 @@ class CfgPatches {
     };
 };
 
-class CfgEditorCategories
-{
+class CfgEditorCategories {
     class GVAR(Props)
     {
         displayName = "Mando-Besbe Props";
