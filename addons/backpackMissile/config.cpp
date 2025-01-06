@@ -21,14 +21,14 @@ class UserActionGroups {
 	class ModSection {
 		name = "Mando Besbe Backpack Missile"; // Display name of your category.
 		isAddon = 1;
-		group[] = { QGVAR(EnableTargeting), QGVAR(Launch), QGVAR(NextMode), QGVAR(PrevMode), QGVAR(NextTarget), QGVAR(PrevTarget) }; // List of all actions inside this category.
+		group[] = { QGVAR(ToggleTargeting), QGVAR(Launch), QGVAR(NextMode), QGVAR(PrevMode), QGVAR(NextTarget), QGVAR(PrevTarget) }; // List of all actions inside this category.
 	};
 };
 
 class CfgUserActions {
-    class GVAR(EnableTargeting) {
-        displayName = "Enable Targeting";
-		tooltip = "This action enables backpack missile targeting.";
+    class GVAR(ToggleTargeting) {
+        displayName = "Toggle Targeting";
+		tooltip = "This action toggles backpack missile targeting.";
 		onActivate = "";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
     };
@@ -45,19 +45,19 @@ class CfgUserActions {
 		onDeactivate = "";		// _this is always false.
     };
     class GVAR(PrevMode) {
-        displayName = "Enable Targeting";
+        displayName = "Previous Targeting Mode";
 		tooltip = "This action selects the previous backpack missile targeting mode.";
 		onActivate = "";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
     };
     class GVAR(NextTarget) {
-        displayName = "Launch Missile";
+        displayName = "Select Next Target";
 		tooltip = "This action selects the next backpack missile target.";
 		onActivate = "";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
     };
     class GVAR(PrevTarget) {
-        displayName = "Launch Missile";
+        displayName = "Select Previous Target";
 		tooltip = "This action selects the previous backpack missile target.";
 		onActivate = "";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
