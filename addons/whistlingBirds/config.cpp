@@ -29,6 +29,8 @@ class CfgVehicles {
         displayname = "Whistling Bird";
         model = QPATHTOF(birds\whistlingbird.p3d);
         description = "micro rocket designed for mandalorian gauntlet";
+        simulation = "thingX";
+        mass = 0.001;
         ace_dragging_canCarry = 1;
         ace_dragging_carryPosition[] = {0, 1, 0};
         ace_dragging_carryDirection = 0;
