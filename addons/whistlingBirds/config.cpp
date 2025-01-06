@@ -19,7 +19,8 @@ class CfgPatches {
 
 class CfgVehicles {
     class Land_Baseball_01_F;
-    class GVAR(whistlingbird): Land_Baseball_01_F
+    class ThingX;
+    class GVAR(whistlingbird): ThingX
     {
         scope = 2;
         scopeCurator = 2;
@@ -28,9 +29,8 @@ class CfgVehicles {
         destrType = "DestrctNo";
         displayname = "Whistling Bird";
         model = QPATHTOF(birds\whistlingbird.p3d);
-        description = "micro rocket designed for mandalorian gauntlet";
+        //description = "micro rocket designed for mandalorian gauntlet";
         simulation = "thingX";
-        mass = 0.001;
         ace_dragging_canCarry = 1;
         ace_dragging_carryPosition[] = {0, 1, 0};
         ace_dragging_carryDirection = 0;
