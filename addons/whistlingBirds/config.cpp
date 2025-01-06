@@ -58,8 +58,8 @@ class CfgWeapons {
 };
 
 class UserActionGroups {
-	class ModSection {
-		name = "Mando Besbe Backpack Missile"; // Display name of your category.
+	class GVAR(Keybinds) {
+		name = "Mando Besbe Whistling Birds"; // Display name of your category.
 		isAddon = 1;
 		group[] = { QGVAR(ToggleTargeting), QGVAR(Launch), QGVAR(MoreTargets), QGVAR(FewerTargets) }; // List of all actions inside this category.
 	};
@@ -69,25 +69,25 @@ class CfgUserActions {
     class GVAR(ToggleTargeting) {
         displayName = "Toggle Targeting";
 		tooltip = "This action toggles whistling birds targeting.";
-		onActivate = "";		// _this is always true.
+		onActivate = QUOTE(_this call FUNC(activate));		// _this is always true.
 		onDeactivate = "";		// _this is always false.
     };
     class GVAR(Launch) {
         displayName = "Launch Whistling Birds";
 		tooltip = "This action launches your whistling birds at your targets.";
-		onActivate = "";		// _this is always true.
+		onActivate = QUOTE(_this call FUNC(launch_birds));		// _this is always true.
 		onDeactivate = "";		// _this is always false.
     };
     class GVAR(MoreTargets) {
         displayName = "Increase Number Of Targets";
 		tooltip = "This action increases the number of selected targets.";
-		onActivate = "";		// _this is always true.
+		onActivate = QUOTE(_this call FUNC(more_targets));		// _this is always true.
 		onDeactivate = "";		// _this is always false.
     };
     class GVAR(FewerTargets) {
         displayName = "Decrease Number Of Targets";
 		tooltip = "This action decreases the number of selected targets.";
-		onActivate = "";		// _this is always true.
+		onActivate = QUOTE(_this call FUNC(fewer_targets));		// _this is always true.
 		onDeactivate = "";		// _this is always false.
     };
 };

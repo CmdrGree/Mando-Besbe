@@ -18,7 +18,7 @@ class CfgPatches {
 };
 
 class UserActionGroups {
-	class ModSection {
+	class GVAR(Keybinds) {
 		name = "Mando Besbe Backpack Missile"; // Display name of your category.
 		isAddon = 1;
 		group[] = { QGVAR(ToggleTargeting), QGVAR(Launch), QGVAR(NextMode), QGVAR(PrevMode), QGVAR(NextTarget), QGVAR(PrevTarget) }; // List of all actions inside this category.
