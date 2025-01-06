@@ -87,14 +87,14 @@ _eh = addUserActionEventHandler ["User11", "Activate", {
 			_fireHandler = addUserActionEventHandler ["defaultAction", "activate", {
 				player getVariable "whistlingBirdsTargets" spawn {
 					params ["_targets"];
-					playSound3D [getMissionPath "\sfx\wbLaunch.ogg", player];
+					player say3D QGVAR(ActivateSound);
 					_numTargets = player getVariable ["numTargets", 12];
 					{
 						if (_forEachIndex < _numTargets) then {
 							[_x, profileNamespace getVariable "_leftieBirds", profileNamespace getVariable "_lethalBirds"] spawn FUNC(whistling_birds);
 							player removeItem QGVAR(whistlingbird_item);
 							if (_forEachIndex % 3 == 0) then {
-								playSound3D [getMissionPath "\sfx\wbLaunch.ogg", player];
+								player say3D QGVAR(LaunchSound);
 							};
 							sleep 0.1;
 						}
