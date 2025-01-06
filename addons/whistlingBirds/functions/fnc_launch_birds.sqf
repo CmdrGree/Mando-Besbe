@@ -22,10 +22,15 @@ if (_targeting) then {
 		_numTargets = player getVariable ["numTargets", 12];
 		{
 			if (_forEachIndex < _numTargets) then {
-				[_x, profileNamespace getVariable "_leftieBirds", profileNamespace getVariable "_lethalBirds"] spawn FUNC(whistling_birds);
+				[_x, profileNamespace getVariable "_leftieBirds", profileNamespace getVariable "_lethalBirds", _forEachIndex] spawn FUNC(whistling_birds);
 				player removeItem QGVAR(whistlingbird_item);
 				if (_forEachIndex % 3 == 0) then {
-					player say3D [QGVAR(LaunchSound), 0];
+					player spawn {
+						_soundSource = '#particlesource' createVehicle getPos (_this);
+						_soundSource say3D [QGVAR(LaunchSound), 0];
+						sleep 1.2;
+						deleteVehicle _soundSource;
+					};
 				};
 				sleep 0.1;
 			}
