@@ -16,7 +16,7 @@
  */
 params ["_target", ["_leftie", true], ["_isLethal", true]];
 if (! isNil "_target") then {
-	_missile = createVehicle ["Land_Baseball_01_F", player modelToWorld (player selectionPosition "leftforearmroll" vectorAdd [0, 0, 0]), [], 0, "CAN_COLLIDE"];
+	_missile = createVehicle [QGVAR(whistlingbird), player modelToWorld (player selectionPosition "leftforearmroll" vectorAdd [0, 0, 0]), [], 0, "CAN_COLLIDE"];
 	if (_leftie) then {
 		_handOrientation = player selectionVectorDirAndUp ["leftforearmroll", "Memory"];
 		_missile setVectorDirAndUp [player vectorModelToWorldVisual _handOrientation #0, player vectorModelToWorldVisual _handOrientation #1];
@@ -50,7 +50,7 @@ if (! isNil "_target") then {
 	    // Particle Effects
 	_source = '#particlesource' createVehicle (getPosASL _missile);
 	_source setParticleClass "Flare2";
-	_source attachTo [_missile, [0, 0, 0]];
+	_source attachTo [_missile, [0, 0, 0], "Exhaust"];
 
 	while { _timeAlive < _lifetime } do {
 		_targetPosition = aimPos _target;
