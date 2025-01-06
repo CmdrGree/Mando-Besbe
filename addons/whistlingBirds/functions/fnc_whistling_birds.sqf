@@ -99,7 +99,7 @@ if (! isNil "_target") then {
 	_hitSounds = [QGVAR(HitSound1), QGVAR(HitSound2), QGVAR(HitSound3)];
 	[_missile, _hitSounds] spawn {
 		_soundSource = '#particlesource' createVehicle getPos (_this select 0);
-		_soundSource say3D (selectRandom (_this select 1));
+		_soundSource say3D [selectRandom (_this select 1), 0];
 		sleep 1.2;
 		deleteVehicle _soundSource;
 	};

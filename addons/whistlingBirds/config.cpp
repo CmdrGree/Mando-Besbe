@@ -116,6 +116,7 @@ class CfgSounds {
     class GVAR(HitSound3) {
         name = "Whistling Birds Hit 3";                        // display name
         sound[] = { QPATHTOF(sounds\wbHit3.ogg), 1, 1, 20 };    // file, volume, pitch, maxDistance
+        titles[] = {0, ""};
     };
 };
 
