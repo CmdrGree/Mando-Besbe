@@ -20,7 +20,7 @@ addUserActionEventHandler["defaultAction", "Activate", {
 		if ((player getVariable "_count") -1 <= 0) then {
 			removeUserActionEventHandler["defaultAction", "Activate", _thisEventHandler]
 		};
-		_target spawn missileFunction;
+		_target spawn FUNC(jetpack_missile);
 	} else {
 		removeUserActionEventHandler["defaultAction", "Activate", _thisEventHandler];
 	};

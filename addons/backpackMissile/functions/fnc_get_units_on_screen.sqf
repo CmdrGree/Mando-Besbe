@@ -21,9 +21,8 @@ _onScreen = [];
 	if (alive _x) then {
 		_screenPos = worldToScreen position _x;
 		if (count _screenPos > 0) then {
-			// if (_screenPos select 1 >= 0.25 && _screenPos select 1 <= 0.75) then {
-				_onScreen pushBack _x;
-			};
+			_onScreen pushBack _x;
 		};
-	} forEach _units;
-	_onScreen;
+	};
+} forEach _units;
+_onScreen;

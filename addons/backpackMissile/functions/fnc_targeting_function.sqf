@@ -17,7 +17,7 @@
 params ["_range", "_player", "_highlight"];
 player setVariable ["selectedTarget", 0];
 systemChat str (player getVariable "selectedTarget");
-_targets = [_range, _player] call getUnitsOnScreenArc;
+_targets = [_range, _player] call FUNC(get_units_on_screen);
 player setVariable ["numTargets", count _targets];
 systemChat str _targets;
 while { player getVariable ["_targeting", false] } do {

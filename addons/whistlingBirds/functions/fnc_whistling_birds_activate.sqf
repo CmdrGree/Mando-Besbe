@@ -17,14 +17,14 @@
 _eh = addUserActionEventHandler ["User11", "Activate", {
 	_targeting = player getVariable ["WhistlingBirdsTargeting", false];
 	_maxBirds = 12;
-	_numBirds = (uniqueUnitItems player) getOrDefault ["LFP_wristrocket", 0];
+	_numBirds = (uniqueUnitItems player) getOrDefault [QGVAR(whistlingbird_item), 0];
 	if (_numBirds > _maxBirds) then {
 		_numOver = _numBirds - _maxBirds;
 		systemChat format ["%1 is too many whistling birds! Removing %2", _numBirds, _numOver];
 		for "_i" from 0 to _numOver-1 do {
-			player removeItem "LFP_wristrocket";
+			player removeItem QGVAR(whistlingbird_item);
 		};
-		_numBirds = (uniqueUnitItems player) getOrDefault ["LFP_wristrocket", 0];
+		_numBirds = (uniqueUnitItems player) getOrDefault [QGVAR(whistlingbird_item), 0];
 	};
 	if (_numBirds == 0) exitWith {
 		removeUserActionEventHandler ["User11", "Activate", _thisEventHandler];
@@ -62,7 +62,7 @@ _eh = addUserActionEventHandler ["User11", "Activate", {
 
 			_moreTargetsHandler = addUserActionEventHandler["User8", "Activate", {
 				_numTargets = player getVariable ["numTargets", 12];
-				if (_numTargets < (uniqueUnitItems player) getOrDefault ["LFP_wristrocket", 0]) then {
+				if (_numTargets < (uniqueUnitItems player) getOrDefault [QGVAR(whistlingbird_item), 0]) then {
 					player setVariable ["numTargets", _numTargets + 1]
 				};
 			}];
@@ -91,8 +91,8 @@ _eh = addUserActionEventHandler ["User11", "Activate", {
 					_numTargets = player getVariable ["numTargets", 12];
 					{
 						if (_forEachIndex < _numTargets) then {
-							[_x, profileNamespace getVariable "_leftieBirds", profileNamespace getVariable "_lethalBirds"] spawn whistling_birds;
-							player removeItem "LFP_wristrocket";
+							[_x, profileNamespace getVariable "_leftieBirds", profileNamespace getVariable "_lethalBirds"] spawn FUNC(whistling_birds);
+							player removeItem QGVAR(whistlingbird_item);
 							if (_forEachIndex % 3 == 0) then {
 								playSound3D [getMissionPath "\sfx\wbLaunch.ogg", player];
 							};

@@ -16,7 +16,7 @@
  */
 addUserActionEventHandler ["User11", "Activate", {
 	player setVariable ["_targeting", true];
-	[2000, player, [1, 0, 0, 1]] spawn targetingFunction;
+	[2000, player, [1, 0, 0, 1]] spawn FUNC(targeting_function);
 	removeUserActionEventHandler ["User11", "Activate", _thisEventHandler];
 
 	_nextEvent = addUserActionEventHandler ["User8", "Activate", {
@@ -44,8 +44,7 @@ addUserActionEventHandler ["User11", "Activate", {
 		removeUserActionEventHandler ["User8", "Activate", player getVariable "selectNextTargetEventID"];
 		removeUserActionEventHandler ["User9", "Activate", player getVariable "selectPreviousTargetEventID"];
 		systemChat "Launch!";
-		[player getVariable "targetVehicle", true] spawn missileFunction;
+		[player getVariable "targetVehicle", true] spawn FUNC(jetpack_missile);
 	}];
 }];
-
 player setVariable ["_count", 1];
