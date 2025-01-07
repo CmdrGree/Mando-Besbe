@@ -60,10 +60,10 @@ if (! isNil "_target") then {
 				_targetPos vectorAdd _offset;
 			};
 			drawLine3D [getPos _missile, ASLToAGL _targetPos, [1, 1, 1, 1]];
-			drawIcon3D["\a3\ui_f\data\IGUI\Cfg\Radar\radar_ca.paa", [1, 1, 1, 1], ASLToAGL _targetPos, 1, 1, 0, "", 0];
+			drawIcon3D["a3\ui_f\data\map\groupicons\selector_selectedenemy_ca.paa", [1, 1, 1, 1], ASLToAGL _targetPos, 1, 1, 0, "", 0];
 		} else {
 			drawLine3D [getPos _missile, ASLToAGL _target, [1, 1, 1, 1]];
-			drawIcon3D["\a3\ui_f\data\IGUI\Cfg\Radar\radar_ca.paa", [1, 1, 1, 1], ASLToAGL _target, 1, 1, 0, "", 0];
+			drawIcon3D["a3\ui_f\data\map\groupicons\selector_selectedenemy_ca.paa", [1, 1, 1, 1], ASLToAGL _target, 1, 1, 0, "", 0];
 		};
 	}, [_missile, _target, _isVehicle, _offset]];
 

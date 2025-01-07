@@ -32,7 +32,7 @@ if (! isNil "_target") then {
 	   // _missile  = createVehicle ["Land_Tableware_01_fork_F", player modelToWorld (player selectionPosition "lefthand"), [], 0, "CAN_COLLIDE"];
 
 	_drawEH = addMissionEventHandler ["Draw3D", {
-		drawIcon3D["\a3\ui_f\data\IGUI\Cfg\Radar\radar_ca.paa", [1, 1, 1, 1], ASLToAGL aimPos (_thisArgs select 0), 1, 1, 0, "", 0];
+		drawIcon3D["a3\ui_f\data\map\groupicons\selector_selectedenemy_ca.paa", [1, 1, 1, 1], ASLToAGL aimPos (_thisArgs select 0), 1, 1, 0, "", 0];
 	}, [_target]];
 
 	_timeAlive = 0;
@@ -51,7 +51,7 @@ if (! isNil "_target") then {
 	    // Particle Effects
 	_source = '#particlesource' createVehicle (getPosASL _missile);
 	_source setParticleClass "Flare2";
-	_source attachTo [_missile, [0, 0, 0], "Exhaust"];
+	_source attachTo [_missile, [0, 0, 0]];
 
 	while { _timeAlive < _lifetime } do {
 		_targetPosition = aimPos _target;

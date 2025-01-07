@@ -71,7 +71,7 @@ if (_targeting) then {
 				_targets = _thisArgs select 0;
 				{
 					if (_forEachIndex < _numTargets) then {
-						drawIcon3D["\a3\ui_f\data\IGUI\Cfg\Radar\radar_ca.paa", [1, 1, 1, 1], ASLToAGL aimPos _x, 1, 1, 0, "", 0];
+						drawIcon3D["a3\ui_f\data\map\groupicons\selector_selectable_ca.paa", [1, 1, 1, 1], ASLToAGL aimPos _x, 1, 1, 0, "", 0];
 					};
 				} forEach _targets;
 			}, [_targets]];
