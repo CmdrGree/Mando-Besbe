@@ -113,9 +113,9 @@ class CfgSounds {
         sound[] = { QPATHTOF(sounds\lock_on.ogg), 1, 1, 1000 };    // file, volume, pitch, maxDistance
         titles[] = {0, ""};
     };
-    class GVAR(SelectTargetSound) {
-        name = "Backpack Missile Select Target Sound";                        // display name
-        sound[] = { QPATHTOF(sounds\select_target.ogg), 1, 1, 1000 };    // file, volume, pitch, maxDistance
+    class GVAR(SelectModeSound) {
+        name = "Backpack Missile Select Mode Sound";                        // display name
+        sound[] = { QPATHTOF(sounds\select_mode.ogg), 1, 1, 1000 };    // file, volume, pitch, maxDistance
         titles[] = {0, ""};
     };
     class GVAR(ClickSound) {

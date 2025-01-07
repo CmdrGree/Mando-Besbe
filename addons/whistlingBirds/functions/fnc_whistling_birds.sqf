@@ -17,7 +17,7 @@
 params ["_target", ["_leftie", true], ["_isLethal", true]];
 if (! isNil "_target") then {
 	// _missile = createVehicle [QGVAR(whistlingbird), player modelToWorld (player selectionPosition "leftforearmroll" vectorAdd [0, 0, 0]), [], 0, "CAN_COLLIDE"];
-	_missile = createVehicle ["Land_Tableware_01_fork_F", player modelToWorld (player selectionPosition "leftforearmroll" vectorAdd [0, 0, 0]), [], 0, "CAN_COLLIDE"];
+	_missile = createVehicle ["Land_Baseball_01_F", player modelToWorld (player selectionPosition "leftforearmroll" vectorAdd [0, 0, 0]), [], 0, "CAN_COLLIDE"];
 	if (_leftie) then {
 		_handOrientation = player selectionVectorDirAndUp ["leftforearmroll", "Memory"];
 		_missile setVectorDirAndUp [player vectorModelToWorldVisual _handOrientation #0, player vectorModelToWorldVisual _handOrientation #1];
@@ -29,7 +29,7 @@ if (! isNil "_target") then {
 		_missile setVelocityModelSpace[5, 0, -5];
 	};
 
-	   // _missile  = createVehicle ["Land_Tableware_01_fork_F", player modelToWorld (player selectionPosition "lefthand"), [], 0, "CAN_COLLIDE"];
+	// _missile  = createVehicle ["Land_Tableware_01_fork_F", player modelToWorld (player selectionPosition "lefthand"), [], 0, "CAN_COLLIDE"];
 
 	_drawEH = addMissionEventHandler ["Draw3D", {
 		drawIcon3D["a3\ui_f\data\map\groupicons\selector_selectedenemy_ca.paa", [1, 1, 1, 1], ASLToAGL aimPos (_thisArgs select 0), 1, 1, 0, "", 0];
@@ -38,11 +38,11 @@ if (! isNil "_target") then {
 	_timeAlive = 0;
 	_lifetime = 4;
 
-	    _G = [0, 0, 9.905]; // Gravity Constant
+	_G = [0, 0, 9.905]; // Gravity Constant
 	_time_step = 0.02;
-	    _N = 4; // Navigation Constant
-	    _thrust = 20; // Missile thrust (N)
-	    _mass = getMass _missile; // Missile mass (kg)
+	_N = 4; // Navigation Constant
+	_thrust = 20; // Missile thrust (N)
+	_mass = getMass _missile; // Missile mass (kg)
 	if (_mass == 0) then {
 		_mass = 0.01
 	};

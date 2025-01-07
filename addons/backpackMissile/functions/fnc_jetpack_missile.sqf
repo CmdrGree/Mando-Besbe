@@ -16,38 +16,40 @@
  */
 params ["_target", ["_isVehicle", false], ["_offset", []]];
 if (! isNil "_target") then {
+	player say3D QGVAR(ClickBeepSound);
 	player setVariable ["BackpackMissileTargeting", false];
 	player setVariable ["BackpackMissileLoaded", false];
 
 	_missile = createVehicle ["R_MRAAWS_HE_F", (getPosATL player) vectorAdd [0, 0, 0], [], 0, "CAN_COLLIDE"];
-    //attach position changed to more closely align with backpack
+	   // attach position changed to more closely align with backpack
 	_missile attachTo [player, [0, -0.02, 0.5], "spine3"];
 	// _missile setVectorDirAndUp (player selectionVectorDirAndUp ["spine3", "Memory"]);
 	detach _missile;
 
 	// Missile orientation based on neck offset from model base
-    _pitchBank = _missile call BIS_fnc_getPitchBank;
-    _positionHead = player selectionPosition ["neck", "Memory"];
-    if (_positionHead select 1 <= 0.4) then {
-        [_missile, (_pitchBank select 0) + 45, 0] call BIS_fnc_setPitchBank;
-        if (_positionHead select 1 <= 0.25) then {
-            [_missile, (_pitchBank select 0) + 75, 0] call BIS_fnc_setPitchBank;
-            if (_positionHead select 1 < 0) then {
-                [_missile, (_pitchBank select 0) + 120, 0] call BIS_fnc_setPitchBank;
-            }
-
-        };
-    } else {[_missile,(_pitchBank select 0) + 15, 0] call BIS_fnc_setPitchBank;};
-    //Speed inverted from -20 to +20, added to player velocity to avoid jumping up into missile
-    _missile setVelocityModelSpace[0, (((velocityModelSpace player) select 1) + 20), 0];
+	_pitchBank = _missile call BIS_fnc_getPitchBank;
+	_positionHead = player selectionPosition ["neck", "Memory"];
+	if (_positionHead select 1 <= 0.4) then {
+		[_missile, (_pitchBank select 0) + 45, 0] call BIS_fnc_setPitchBank;
+		if (_positionHead select 1 <= 0.25) then {
+			[_missile, (_pitchBank select 0) + 75, 0] call BIS_fnc_setPitchBank;
+			if (_positionHead select 1 < 0) then {
+				[_missile, (_pitchBank select 0) + 120, 0] call BIS_fnc_setPitchBank;
+			}
+		};
+	} else {
+		[_missile, (_pitchBank select 0) + 15, 0] call BIS_fnc_setPitchBank;
+	};
+	   // speed inverted from -20 to +20, added to player velocity to avoid jumping up into missile
+	_missile setVelocityModelSpace[0, (((velocityModelSpace player) select 1) + 20), 0];
 
 	_timeAlive = 0;
 	_lifetime = 4;
 
 	private _launchSounds = [QGVAR(LaunchSound1), QGVAR(LaunchSound2), QGVAR(LaunchSound3)];
 	private _soundSource = '#particlesource' createVehicle getPos (_missile);
-    // added missile smoke effect so it's not naked anymore
-    _soundSource setParticleClass "Missile2";
+	    // added missile smoke effect so it's not naked anymore
+	_soundSource setParticleClass "Missile2";
 	_soundSource attachTo [_missile, [0, 0, 0]];
 	_soundSource say3D [selectRandom _launchSounds, 10000, 1, 0, 0, true];
 
@@ -131,20 +133,20 @@ if (! isNil "_target") then {
 		// apply new velocity
 		_missile setVelocity (_missileVelocity vectorAdd (_accel_m vectorMultiply _time_step));
 
-        private _dirVector = vectorNormalized _accel_command;
+		private _dirVector = vectorNormalized _accel_command;
 
-        // Gradual blending of current direction and target direction
-        private _currentDir = vectorDir _missile;
-        private _newDir = vectorNormalized (_currentDir vectorAdd (_dirVector vectorMultiply 0.1));
+		        // Gradual blending of current direction and target direction
+		private _currentDir = vectorDir _missile;
+		private _newDir = vectorNormalized (_currentDir vectorAdd (_dirVector vectorMultiply 0.1));
 
-        // Recalculate up vector for stability
-        private _upVector = vectorNormalized (_newDir vectorCrossProduct [0, 0, 1]); // Perpendicular vector
-        private _upVector = vectorNormalized (_upVector vectorCrossProduct _newDir); // Ensure orthogonal to forward vector
+		        // Recalculate up vector for stability
+		        private _upVector = vectorNormalized (_newDir vectorCrossProduct [0, 0, 1]); // Perpendicular vector
+		        private _upVector = vectorNormalized (_upVector vectorCrossProduct _newDir); // Ensure orthogonal to forward vector
 
-        _missile setVectorDirAndUp [
-            _newDir,
-            _upVector
-        ];
+		_missile setVectorDirAndUp [
+			_newDir,
+			_upVector
+		];
 
 		// Lifetime step.
 		_timeAlive = _timeAlive + _time_step;

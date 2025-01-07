@@ -28,9 +28,9 @@ addMissionEventHandler ["Draw3D", {
 		_selectedTarget = player getVariable ["selectedTarget", 0];
 		{
 			if (_forEachIndex == _selectedTarget % count _targets) then {
-				drawIcon3D["a3\ui_f\data\map\groupicons\selector_selectedenemy_ca.paa", _highlight, ASLtoAGL (aimPos _x), 1, 1, 0, "", 0];
+				drawIcon3D["a3\ui_f\data\map\groupicons\selector_selectedenemy_ca.paa", _highlight, ASLToAGL (aimPos _x), 1, 1, 0, "", 0];
 			} else {
-				drawIcon3D["a3\ui_f\data\map\groupicons\selector_selectable_ca.paa", [1, 1, 1, 1], ASLtoAGL (aimPos _x), 1, 1, 0, "", 0];
+				drawIcon3D["a3\ui_f\data\map\groupicons\selector_selectable_ca.paa", [1, 1, 1, 1], ASLToAGL (aimPos _x), 1, 1, 0, "", 0];
 			};
 		} forEach _targets;
 	} else {

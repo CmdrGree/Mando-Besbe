@@ -22,4 +22,5 @@ if (_targeting) then {
 	};
 	player setVariable ["selectedTarget", _selectedTarget - 1];
 	systemChat format ["Selected Target %1", player getVariable "selectedTarget"];
+	player say3D QGVAR(ClickSound);
 };

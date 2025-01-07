@@ -18,6 +18,7 @@ private _targeting = player getVariable ["BackpackMissileTargeting", false];
 private _missileLoaded = player getVariable ["BackpackMissileLoaded", true];
 private _targeting_mode = player getVariable["BackpackMissileTargetingMode", "direct"];
 if (_missileLoaded) then {
+	player say3D QGVAR(ClickSound);
 	if (_targeting) then {
 		player setVariable ["BackpackMissileTargeting", false];
 		systemChat "Deactivating Missile Targeting";

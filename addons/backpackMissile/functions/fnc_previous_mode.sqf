@@ -29,4 +29,5 @@ if (_targeting) then {
 		player spawn FUNC(on_screen_targeting);
 	};
 	systemChat format ["Switching to %1 targeting mode", _mode];
+	player say3D QGVAR(SelectModeSound);
 };

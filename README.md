@@ -51,5 +51,5 @@ Mando Besbe is licensed under [APL-ND](./LICENSE.md).
 ## Credits
 - [Thanks to Friendly Free Sounds for their fantastic missile launch sounds!](https://www.youtube.com/@FriendlyFreeSounds)
 - click.ogg is "click" by florianreichelt -- https://freesound.org/s/683098/ -- License: Creative Commons 0
-- select_target.ogg is "ui sound 7.wav" by nezuai -- https://freesound.org/s/582607/ -- License: Attribution 4.0
+- select_mode.ogg is "ui sound 7.wav" by nezuai -- https://freesound.org/s/582607/ -- License: Attribution 4.0
 - click_bleep.ogg is "UI Click - Menu - Modern Interface - Select Small 01" by RescopicSound -- https://freesound.org/s/750435/ -- License: Attribution NonCommercial 4.0
