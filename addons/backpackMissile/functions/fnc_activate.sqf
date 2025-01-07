@@ -27,7 +27,7 @@ if (_missileLoaded) then {
 
 		switch (_targeting_mode) do {
 			case "on screen": {
-				[2000, player, [1, 0, 0, 1]] spawn FUNC(on_screen_targeting);
+				player spawn FUNC(on_screen_targeting);
 			};
 		};
 	};

@@ -23,5 +23,10 @@ if (_targeting) then {
 		_mode_number = count _modes;
 	};
 	player setVariable ["BackpackMissileTargetingMode", _modes select ((_mode_number - 1))];
-	systemChat format ["Switching to %1 targeting mode", player getVariable ["BackpackMissileTargetingMode", "direct"]];
+
+	private _mode = player getVariable ["BackpackMissileTargetingMode", "direct"];
+	if (_mode == "on screen") then {
+		player spawn FUNC(on_screen_targeting);
+	};
+	systemChat format ["Switching to %1 targeting mode", _mode];
 };

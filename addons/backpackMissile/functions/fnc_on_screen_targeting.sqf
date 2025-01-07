@@ -14,14 +14,15 @@
 	 *
 	 * Public: No
  */
-params ["_range", "_player", "_highlight"];
+_range = profileNamespace getVariable["BackpackMissileRange", 2000];
+_highlight = profileNamespace getVariable["BackpackMissileHighlightColor", [1, 0, 0, 1]];
 player setVariable ["selectedTarget", 0];
-_targets = [_range, _player] call FUNC(get_units_on_screen);
+_targets = [_range, player] call FUNC(get_units_on_screen);
 player setVariable ["numTargets", count _targets];
 player setVariable ["BackpackMissileTargets", _targets];
 systemChat str _targets;
 
-_targetPainterEH = addMissionEventHandler ["Draw3D", {
+addMissionEventHandler ["Draw3D", {
 	_thisArgs params ["_targets", "_highlight"];
 	if (player getVariable["BackpackMissileTargeting", false] && player getVariable["BackpackMissileTargetingMode", "direct"] == "on screen") then {
 		_selectedTarget = player getVariable ["selectedTarget", 0];
