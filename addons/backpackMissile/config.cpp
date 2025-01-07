@@ -43,7 +43,7 @@ class UserActionGroups {
 	class GVAR(Keybinds) {
 		name = "Mando Besbe Backpack Missile"; // Display name of your category.
 		isAddon = 1;
-		group[] = { QGVAR(ToggleTargeting), QGVAR(Launch), QGVAR(NextMode), QGVAR(PrevMode), QGVAR(NextTarget), QGVAR(PrevTarget) }; // List of all actions inside this category.
+		group[] = { QGVAR(ToggleTargeting), QGVAR(Launch), QGVAR(NextMode), QGVAR(PrevMode), QGVAR(NextTarget), QGVAR(PrevTarget), QGVAR(Reload) }; // List of all actions inside this category.
 	};
 };
 
@@ -86,7 +86,7 @@ class CfgUserActions {
     };
     class GVAR(Reload) {
         displayName = "Reload Backpack Missile";
-		tooltip = "This action reloads the backpack missiltarget.";
+		tooltip = "This action reloads the backpack missilte.";
 		onActivate = QUOTE(0 call FUNC(reload));		// _this is always true.
 		onDeactivate = "";		// _this is always false.
     };
