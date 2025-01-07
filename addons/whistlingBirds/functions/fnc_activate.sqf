@@ -37,19 +37,26 @@ if (_targeting) then {
 		systemChat "Out of whistling birds.";
 	};
 
-	private _numTargets = player getVariable ["numTargets", 12];
-	if (_numTargets > _numBirds) then {
-		player setVariable ["numTargets", _numBirds];
-	};
-	systemChat format ["You have %1 out of %2 whistling birds.", _numBirds, _maxBirds];
-
-	_units = (getPos player) nearEntities ["man", 40];
-	_targets = [];
+	// find targets
+	private _units = (getPos player) nearEntities ["man", 40];
+	private _targets = [];
 	{
 		if ((side _x) getFriend (side player) < 0.6) then {
 			_targets pushBack _x;
 		};
 	} forEach _units;
+
+	// Limit default number of targets selected by how many whistling birds you have.
+	if (player getVariable ["numTargets", 12] > _numBirds) then {
+		player setVariable ["numTargets", _numBirds];
+	};
+	systemChat format ["You have %1 out of %2 whistling birds.", _numBirds, _maxBirds];
+
+	// Limit default number of targets selected by how many targets there are.
+	if (count _targets > player getVariable ["numTargets", 12]) then {
+		player setVariable ["numTargets", count _targets];
+	};
+
 	if (_numBirds > 0) then {
 		if ((count _targets) > 0) then {
 			player say3D [QGVAR(ActivateSound), 0];
