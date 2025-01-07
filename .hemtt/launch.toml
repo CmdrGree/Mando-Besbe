@@ -8,6 +8,7 @@ presets = []
 dlc = []
 optionals = []
 parameters = []
+mission = "GuidanceTesting.VR"
 
 [ace]
 extends = "default"
