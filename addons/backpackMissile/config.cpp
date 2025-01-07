@@ -51,37 +51,37 @@ class CfgUserActions {
     class GVAR(ToggleTargeting) {
         displayName = "Toggle Targeting";
 		tooltip = "This action toggles backpack missile targeting.";
-		onActivate = "";		// _this is always true.
+		onActivate = QUOTE(0 call FUNC(activate));		// _this is always true.
 		onDeactivate = "";		// _this is always false.
     };
     class GVAR(Launch) {
         displayName = "Launch Missile";
 		tooltip = "This action launches your backpack missile.";
-		onActivate = "";		// _this is always true.
+		onActivate = QUOTE(0 call FUNC(launch));		// _this is always true.
 		onDeactivate = "";		// _this is always false.
     };
     class GVAR(NextMode) {
         displayName = "Next Targeting Mode";
 		tooltip = "This action selects the next backpack missile targeting mode.";
-		onActivate = "";		// _this is always true.
+		onActivate = QUOTE(0 call FUNC(next_mode));		// _this is always true.
 		onDeactivate = "";		// _this is always false.
     };
     class GVAR(PrevMode) {
         displayName = "Previous Targeting Mode";
 		tooltip = "This action selects the previous backpack missile targeting mode.";
-		onActivate = "";		// _this is always true.
+		onActivate = QUOTE(0 call FUNC(previous_mode));		// _this is always true.
 		onDeactivate = "";		// _this is always false.
     };
     class GVAR(NextTarget) {
         displayName = "Select Next Target";
 		tooltip = "This action selects the next backpack missile target.";
-		onActivate = "";		// _this is always true.
+		onActivate = QUOTE(0 call FUNC(next_target));		// _this is always true.
 		onDeactivate = "";		// _this is always false.
     };
     class GVAR(PrevTarget) {
         displayName = "Select Previous Target";
 		tooltip = "This action selects the previous backpack missile target.";
-		onActivate = "";		// _this is always true.
+		onActivate = QUOTE(0 call FUNC(previous_target));		// _this is always true.
 		onDeactivate = "";		// _this is always false.
     };
 };
@@ -97,9 +97,9 @@ class CfgSounds {
         sound[] = { QPATHTOF(sounds\missile_launch_2.ogg), 1, 1, 1000 };    // file, volume, pitch, maxDistance
         titles[] = {0, ""};
     };
-    class GVAR(LaunchSound2) {
-        name = "Backpack Missile Launch Sound 2";                        // display name
-        sound[] = { QPATHTOF(sounds\missile_launch_2.ogg), 1, 1, 1000 };    // file, volume, pitch, maxDistance
+    class GVAR(LaunchSound3) {
+        name = "Backpack Missile Launch Sound 3";                        // display name
+        sound[] = { QPATHTOF(sounds\missile_launch_3.ogg), 1, 1, 1000 };    // file, volume, pitch, maxDistance
         titles[] = {0, ""};
     };
 };

@@ -2,7 +2,11 @@
 
 PREP(get_target_and_offset);
 PREP(get_target);
-PREP(jetpack_missile_screen_targeting);
-PREP(jetpack_missile_targeting);
 PREP(jetpack_missile);
-PREP(targeting_function);
+PREP(on_screen_targeting);
+PREP(activate);
+PREP(launch);
+PREP(next_target);
+PREP(previous_target);
+PREP(next_mode);
+PREP(previous_mode);

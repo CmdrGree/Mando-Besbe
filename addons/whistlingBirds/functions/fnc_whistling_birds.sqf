@@ -16,7 +16,8 @@
  */
 params ["_target", ["_leftie", true], ["_isLethal", true]];
 if (! isNil "_target") then {
-	_missile = createVehicle [QGVAR(whistlingbird), player modelToWorld (player selectionPosition "leftforearmroll" vectorAdd [0, 0, 0]), [], 0, "CAN_COLLIDE"];
+	// _missile = createVehicle [QGVAR(whistlingbird), player modelToWorld (player selectionPosition "leftforearmroll" vectorAdd [0, 0, 0]), [], 0, "CAN_COLLIDE"];
+	_missile = createVehicle ["Land_Tableware_01_fork_F", player modelToWorld (player selectionPosition "leftforearmroll" vectorAdd [0, 0, 0]), [], 0, "CAN_COLLIDE"];
 	if (_leftie) then {
 		_handOrientation = player selectionVectorDirAndUp ["leftforearmroll", "Memory"];
 		_missile setVectorDirAndUp [player vectorModelToWorldVisual _handOrientation #0, player vectorModelToWorldVisual _handOrientation #1];

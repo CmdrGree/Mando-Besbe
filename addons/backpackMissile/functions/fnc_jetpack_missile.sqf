@@ -15,18 +15,26 @@
 	 * Public: No
  */
 params ["_target", ["_isVehicle", false], ["_offset", []]];
-_count = player getVariable "_count";
-if (! isNil "_target" && _count > 0) then {
-	player setVariable ["_count", _count-1];
-	// _missile  = createVehicle ["R_MRAAWS_HE_F", (getPosATL player) vectorAdd [0, 0, 0], [], 0, "CAN_COLLIDE"];
+if (! isNil "_target") then {
+	player setVariable ["BackpackMissileTargeting", false];
+	player setVariable ["BackpackMissileLoaded", false];
+
 	_missile = createVehicle ["R_MRAAWS_HE_F", (getPosATL player) vectorAdd [0, 0, 0], [], 0, "CAN_COLLIDE"];
+
 	_missile attachTo [player, [0, -0.2, 1], "spine3"];
 	// _missile setVectorDirAndUp (player selectionVectorDirAndUp ["spine3", "Memory"]);
 	detach _missile;
+
+	// Missile orientation and initial velocity.
 	_missile setVectorDirAndUp [[0, 0, -1], [0, 1, 0]];
 	_missile setVelocityModelSpace[0, -20, 0];
 	_timeAlive = 0;
 	_lifetime = 4;
+
+	private _launchSounds = [QGVAR(LaunchSound1), QGVAR(LaunchSound2), QGVAR(LaunchSound3)];
+	private _soundSource = '#particlesource' createVehicle getPos (_missile);
+	_soundSource attachTo [_missile, [0, 0, 0]];
+	_soundSource say3D [selectRandom _launchSounds, 10000, 1, 0, 0, true];
 
 	_drawEH = addMissionEventHandler ["Draw3D", {
 		_missile = _thisArgs select 0;
@@ -70,37 +78,40 @@ if (! isNil "_target" && _count > 0) then {
 		_dir = vectorDir _missile;
 		_up = vectorUp _missile;
 
-		// Calculate LOS vector and direction
-		_LOS = _targetPosition vectorDiff _missilePosition;
-		_LOS_mag = vectorMagnitude _LOS;
-		/* if (_LOS_mag <= 3 && _isVehicle) then {
+		// Calculate LineOfSight vector and direction
+		private _LineOfSight = _targetPosition vectorDiff _missilePosition;
+
+		/* if (vectorMagnitude _LineOfSight; <= 3 && _isVehicle) then {
 				_missile setDamage 1;
 				_target setDamage (damage _target + _vehicleDamage)
 		};*/
 
-		// LOS rate (Cross product of LOS and relative velocity.)
-		_LOS_dir = vectorNormalized _LOS;
-		_LOS_rate = _LOS vectorCrossProduct (_targetVelocity vectorDiff _missileVelocity) vectorMultiply (1 / (vectorMagnitudeSqr _LOS));
+		// LineOfSight rate (Cross product of LineOfSight and relative velocity.)
+		private _LineOfSight_dir = vectorNormalized _LineOfSight;
+		private _LineOfSight_rate = _LineOfSight vectorCrossProduct (_targetVelocity vectorDiff _missileVelocity) vectorMultiply (1 / (vectorMagnitudeSqr _LineOfSight));
 
 		// Guidance command (Proportional Navigation)
-		_a_command = (_LOS_rate vectorCrossProduct _missileVelocity) vectorMultiply _N;
-		_a_command_mag = vectorMagnitude _a_command;
+		_accel_command = (_LineOfSight_rate vectorCrossProduct _missileVelocity) vectorMultiply _N;
 
-		_a_command = _a_command vectorAdd (_LOS_dir vectorMultiply (_thrust / _mass));
+		// Add thrust
+		_accel_command = _accel_command vectorAdd (_LineOfSight_dir vectorMultiply (_thrust / _mass));
 
 		// Limit commanded acceleration by thrust
-		if (_a_command_mag > _thrust / _mass) then {
-			_a_command = (vectorNormalized _a_command) vectorMultiply (_thrust / _mass);
+		if (vectorMagnitude _accel_command > _thrust / _mass) then {
+			_accel_command = (vectorNormalized _accel_command) vectorMultiply (_thrust / _mass);
 		};
 
-		_angular_velocity = vectorMagnitude _LOS_rate;
+		// Limit commanded acceleration by turn rate
+		_angular_velocity = vectorMagnitude _LineOfSight_rate;
 		if (_angular_velocity > _maxTurnRate) then {
-			_a_command = _a_command vectorMultiply (_maxTurnRate / _angular_velocity);
+			_accel_command = _accel_command vectorMultiply (_maxTurnRate / _angular_velocity);
 		};
 
-		_a_m = _a_command vectorAdd _G;
+		// Compensate for gravity
+		_accel_m = _accel_command vectorAdd _G;
 
-		_missile setVelocity (_missileVelocity vectorAdd (_a_m vectorMultiply _time_step));
+		// apply new velocity
+		_missile setVelocity (_missileVelocity vectorAdd (_accel_m vectorMultiply _time_step));
 
 		// Lifetime step.
 		_timeAlive = _timeAlive + _time_step;
@@ -108,4 +119,5 @@ if (! isNil "_target" && _count > 0) then {
 	};
 	removeMissionEventHandler ["Draw3D", _drawEH];
 	deleteVehicle _missile;
+	deleteVehicle _soundSource;
 };
