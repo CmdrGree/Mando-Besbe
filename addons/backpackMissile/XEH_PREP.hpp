@@ -1,5 +1,6 @@
 // PREP(empty);
 
+PREP(get_units_on_screen);
 PREP(get_target_and_offset);
 PREP(get_target);
 PREP(jetpack_missile);

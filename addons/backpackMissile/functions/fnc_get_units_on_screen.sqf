@@ -25,4 +25,8 @@ _onScreen = [];
 		};
 	};
 } forEach _units;
+
+_onScreen = _onScreen select {
+	!(_x isKindOf "Man")
+};
 _onScreen;

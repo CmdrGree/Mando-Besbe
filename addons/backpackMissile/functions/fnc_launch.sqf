@@ -19,7 +19,8 @@ private _targetingMode = player getVariable ["BackpackMissileTargetingMode", "di
 if (_targeting) then {
 	switch (_targetingMode) do {
 		case "on screen": {
-			[player getVariable "targetVehicle", true] spawn FUNC(jetpack_missile);
+			_target = (player getVariable "BackpackMissileTargets") select (player getVariable ["selectedTarget", 0]);
+			[_target, true] spawn FUNC(jetpack_missile);
 		};
 		case "direct": {
 			_target = 0 call FUNC(get_target);

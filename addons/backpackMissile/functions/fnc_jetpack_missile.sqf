@@ -37,17 +37,20 @@ if (! isNil "_target") then {
 	_soundSource say3D [selectRandom _launchSounds, 10000, 1, 0, 0, true];
 
 	_drawEH = addMissionEventHandler ["Draw3D", {
-		_missile = _thisArgs select 0;
-		_target = _thisArgs select 1;
-		_isVehicle = _thisArgs select 2;
+		_thisArgs params ["_missile", "_target", "_isVehicle", "_offset"];
+
 		if (_isVehicle) then {
-			drawLine3D [getPos _missile, ASLToAGL (aimPos _target), [1, 1, 1, 1]];
-			drawIcon3D["\a3\ui_f\data\IGUI\Cfg\Radar\radar_ca.paa", [1, 1, 1, 1], ASLToAGL (aimPos _targetPosition), 1, 1, 0, "", 0];
+			private _targetPos = aimPos _target;
+			if (count _offset == 3) then {
+				_targetPos vectorAdd _offset;
+			};
+			drawLine3D [getPos _missile, ASLToAGL _targetPos, [1, 1, 1, 1]];
+			drawIcon3D["\a3\ui_f\data\IGUI\Cfg\Radar\radar_ca.paa", [1, 1, 1, 1], ASLToAGL _targetPos, 1, 1, 0, "", 0];
 		} else {
 			drawLine3D [getPos _missile, ASLToAGL _target, [1, 1, 1, 1]];
 			drawIcon3D["\a3\ui_f\data\IGUI\Cfg\Radar\radar_ca.paa", [1, 1, 1, 1], ASLToAGL _target, 1, 1, 0, "", 0];
 		};
-	}, [_missile, _target, _isVehicle]];
+	}, [_missile, _target, _isVehicle, _offset]];
 
 	_vehicleDamage = 0.5;
 	_G = [0, 0, 9.905]; // Gravity Constant
@@ -119,5 +122,6 @@ if (! isNil "_target") then {
 	};
 	removeMissionEventHandler ["Draw3D", _drawEH];
 	deleteVehicle _missile;
+	sleep ((_target distance player) / 340.29);
 	deleteVehicle _soundSource;
 };
