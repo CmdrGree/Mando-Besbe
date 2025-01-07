@@ -34,15 +34,19 @@ Delete this section after the project has been initially set up:
    - This should be all uppercase.
 5. After the initial Steam upload, find and replace all instances of `MOD_ID` with the mod's Steam Workshop id.
 
-**Mando Besbe** (MNDB) aims to...
+**Mando Besbe** (MNDB) aims to create a full suite of mandalorian-inspired gadgets for your every bounty-hunting, jedi-fighting, and crusading needs.
 
 The project is entirely **open-source** and any contributions are welcome.
 
 ## Core Features
-- Feature
+- Backpack Missile
+- Whistling Birds
 
 ## Contributing
 For new contributers, see the [Contributing Setup & Guidelines](./.github/CONTRIBUTING.md).
 
 ## License
 Mando Besbe is licensed under [APL-ND](./LICENSE.md).
+
+## Credits
+- [Thanks to Friendly Free Sounds for their fantastic missile launch sounds!](https://www.youtube.com/@FriendlyFreeSounds)

@@ -12,8 +12,30 @@ class CfgPatches {
             "mndb_common"
         };
         units[] = {};
-        weapons[] = {};
+        weapons[] = {QGVAR(backpack_missile_item)};
         VERSION_CONFIG;
+    };
+};
+
+class CfgWeapons {
+    class ItemCore;
+    class InventoryItem_Base_F;
+    class GVAR(backpack_missile_item): ItemCore
+    {
+        displayName = "Backpack Missile";
+        author = "CmdrGree";
+		model = QPATHTOF(birds\whistlingbird.p3d);
+        scope = 2;
+        scopeCurator = 2;
+        descriptionShort = "A powerful missile.";
+        simulation = "ItemMineDetector";
+        ACE_isUnique = 1;
+
+        class ItemInfo: InventoryItem_Base_F
+        {
+            picture = "";
+            inertia = 0.5;
+        };
     };
 };
 
@@ -61,6 +83,24 @@ class CfgUserActions {
 		tooltip = "This action selects the previous backpack missile target.";
 		onActivate = "";		// _this is always true.
 		onDeactivate = "";		// _this is always false.
+    };
+};
+
+class CfgSounds {
+    class GVAR(LaunchSound1) {
+        name = "Backpack Missile Launch Sound 1";                        // display name
+        sound[] = { QPATHTOF(sounds\missile_launch_1.ogg), 1, 1, 1000 };    // file, volume, pitch, maxDistance
+        titles[] = {0, ""};
+    };
+    class GVAR(LaunchSound2) {
+        name = "Backpack Missile Launch Sound 2";                        // display name
+        sound[] = { QPATHTOF(sounds\missile_launch_2.ogg), 1, 1, 1000 };    // file, volume, pitch, maxDistance
+        titles[] = {0, ""};
+    };
+    class GVAR(LaunchSound2) {
+        name = "Backpack Missile Launch Sound 2";                        // display name
+        sound[] = { QPATHTOF(sounds\missile_launch_2.ogg), 1, 1, 1000 };    // file, volume, pitch, maxDistance
+        titles[] = {0, ""};
     };
 };
 
