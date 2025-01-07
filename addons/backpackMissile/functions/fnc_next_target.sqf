@@ -15,7 +15,8 @@
 	 * Public: No
 */
 private _targeting = player getVariable ["BackpackMissileTargeting", false];
-if (_targeting) then {
+private _mode = player getVariable ["BackpackMissileTargetingMode", "direct"];
+if (_targeting && _mode == "on screen") then {
 	_selectedTarget = player getVariable ["selectedTarget", 0];
 	player setVariable ["selectedTarget", (_selectedTarget + 1) % (player getVariable "numTargets")];
 	systemChat format ["Selected Target %1", player getVariable "selectedTarget"];
