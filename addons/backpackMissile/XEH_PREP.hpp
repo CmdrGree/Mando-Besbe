@@ -11,3 +11,4 @@ PREP(next_target);
 PREP(previous_target);
 PREP(next_mode);
 PREP(previous_mode);
+PREP(reload);

@@ -84,6 +84,12 @@ class CfgUserActions {
 		onActivate = QUOTE(0 call FUNC(previous_target));		// _this is always true.
 		onDeactivate = "";		// _this is always false.
     };
+    class GVAR(Reload) {
+        displayName = "Reload Backpack Missile";
+		tooltip = "This action reloads the backpack missiltarget.";
+		onActivate = QUOTE(0 call FUNC(reload));		// _this is always true.
+		onDeactivate = "";		// _this is always false.
+    };
 };
 
 class CfgSounds {
