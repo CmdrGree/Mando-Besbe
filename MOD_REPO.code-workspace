@@ -7,12 +7,10 @@
     "settings": {
         "editor.insertSpaces": true,
         "editor.detectIndentation": false,
-
         "files.autoSave": "onFocusChange",
         "files.trimFinalNewlines": true,
         "files.trimTrailingWhitespace": true,
         "files.insertFinalNewline": false,
-
         "files.associations": {
             "*.cpp": "cpp",
             "*.hpp": "cpp",
@@ -20,7 +18,9 @@
             "*.cfg": "cpp",
             "*.rvmat": "cpp"
         },
-
-        "C_Cpp.errorSquiggles": "disabled"
+        "C_Cpp.errorSquiggles": "disabled",
+        "editor.formatOnSave": false,
+        "editor.formatOnPaste": false,
+        "editor.formatOnType": false
     }
 }
