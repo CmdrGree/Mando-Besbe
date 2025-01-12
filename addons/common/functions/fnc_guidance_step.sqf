@@ -35,7 +35,6 @@ private _missile_velocity = velocity _missile;
 private _dir = vectorDir _missile;
 private _up = vectorUp _missile;
 
-systemChat str _is_vehicle;
 if (_is_vehicle) then {
 	if (count _offset > 0) then {
 		_target_position = _target modelToWorld _offset;

@@ -20,7 +20,7 @@ player setVariable ["selectedTarget", 0];
 _targets = [_range, player] call FUNC(get_units_on_screen);
 player setVariable ["numTargets", count _targets];
 player setVariable ["BackpackMissileTargets", _targets];
-systemChat str _targets;
+//systemChat str _targets;
 
 addMissionEventHandler ["Draw3D", {
 	_thisArgs params ["_targets", "_highlight"];

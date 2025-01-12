@@ -22,6 +22,6 @@ if (_targeting && _mode == "on screen") then {
 		_selectedTarget = player getVariable "numTargets";
 	};
 	player setVariable ["selectedTarget", _selectedTarget - 1];
-	systemChat format ["Selected Target %1", player getVariable "selectedTarget"];
+	//systemChat format ["Selected Target %1", player getVariable "selectedTarget"];
 	player say3D QGVAR(ClickSound);
 };
