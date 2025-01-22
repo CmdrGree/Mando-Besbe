@@ -49,7 +49,7 @@ if (! isNil "_target") then {
 	// Particle Effects
 	_source = '#particlesource' createVehicle (getPosASL _missile);
 	_source setParticleClass "Flare2";
-	_source attachTo [_missile, [0, 0, 0]];
+	_source attachTo [_missile, [0, 0, 0], "Exhaust"];
 
 	while { _timeAlive < _lifetime } do {
 		_distance_to_target = [_target, _missile, _mass, _thrust, _maxTurnRate, true, _time_step, false, false, []] call EFUNC(common,guidance_step);

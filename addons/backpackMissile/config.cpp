@@ -17,6 +17,17 @@ class CfgPatches {
     };
 };
 
+class CfgAmmo
+{
+    class R_MRAAWS_HE_F;
+    class GVAR(backpack_missile): R_MRAAWS_HE_F
+    {
+        displaname = "Backpack Missile";
+        model = QPATHTOF(missiles\backpackMissile.p3d);
+    };
+};
+
+
 class CfgWeapons {
     class ItemCore;
     class InventoryItem_Base_F;

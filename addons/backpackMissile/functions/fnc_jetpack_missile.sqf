@@ -20,7 +20,7 @@ if (! isNil "_target") then {
 	player setVariable ["BackpackMissileTargeting", false];
 	player setVariable ["BackpackMissileLoaded", false];
 
-	_missile = createVehicle ["R_MRAAWS_HE_F", (getPosATL player) vectorAdd [0, 0, 0], [], 0, "CAN_COLLIDE"];
+	_missile = createVehicle [QGVAR(backpack_missile), (getPosATL player) vectorAdd [0, 0, 0], [], 0, "CAN_COLLIDE"];
 	   // attach position changed to more closely align with backpack
 	_missile attachTo [player, [0, -0.02, 0.5], "spine3"];
 	// _missile setVectorDirAndUp (player selectionVectorDirAndUp ["spine3", "Memory"]);
@@ -57,8 +57,8 @@ if (! isNil "_target") then {
 	private _launchSounds = [QGVAR(LaunchSound1), QGVAR(LaunchSound2), QGVAR(LaunchSound3)];
 	private _soundSource = '#particlesource' createVehicle getPos (_missile);
 	    // added missile smoke effect so it's not naked anymore
-	_soundSource setParticleClass "Missile2";
-	_soundSource attachTo [_missile, [0, 0, 0]];
+	_soundSource setParticleClass "Flare2";
+	_soundSource attachTo [_missile, [0, 0, 0], "Exhaust"];
 	_soundSource say3D [selectRandom _launchSounds, 10000, 1, 0, 0, true];
 
 	_drawEH = addMissionEventHandler ["Draw3D", {
