@@ -24,7 +24,7 @@ class CfgWeapons {
     {
         displayName = "Backpack Missile";
         author = "CmdrGree";
-		model = QPATHTOF(birds\whistlingbird.p3d);
+		model = QPATHTOF(missiles\backpackMissile.p3d);
         scope = 2;
         scopeCurator = 2;
         descriptionShort = "A powerful missile.";
