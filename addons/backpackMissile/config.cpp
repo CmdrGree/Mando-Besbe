@@ -35,7 +35,7 @@ class CfgWeapons {
     {
         displayName = "Backpack Missile";
         author = "CmdrGree";
-		model = QPATHTOF(missiles\backpackMissile.p3d);
+        model = QPATHTOF(missiles\backpackMissile.p3d);
         scope = 2;
         scopeCurator = 2;
         descriptionShort = "A powerful missile.";
@@ -51,55 +51,55 @@ class CfgWeapons {
 };
 
 class UserActionGroups {
-	class GVAR(Keybinds) {
-		name = "Mando Besbe Backpack Missile"; // Display name of your category.
-		isAddon = 1;
-		group[] = { QGVAR(ToggleTargeting), QGVAR(Launch), QGVAR(NextMode), QGVAR(PrevMode), QGVAR(NextTarget), QGVAR(PrevTarget), QGVAR(Reload) }; // List of all actions inside this category.
-	};
+    class GVAR(Keybinds) {
+        name = "Mando Besbe Backpack Missile"; // Display name of your category.
+        isAddon = 1;
+        group[] = { QGVAR(ToggleTargeting), QGVAR(Launch), QGVAR(NextMode), QGVAR(PrevMode), QGVAR(NextTarget), QGVAR(PrevTarget), QGVAR(Reload) }; // List of all actions inside this category.
+    };
 };
 
 class CfgUserActions {
     class GVAR(ToggleTargeting) {
         displayName = "Toggle Targeting";
-		tooltip = "This action toggles backpack missile targeting.";
-		onActivate = QUOTE(0 call FUNC(activate));		// _this is always true.
-		onDeactivate = "";		// _this is always false.
+        tooltip = "This action toggles backpack missile targeting.";
+        onActivate = QUOTE(0 call FUNC(activate));        // _this is always true.
+        onDeactivate = "";        // _this is always false.
     };
     class GVAR(Launch) {
         displayName = "Launch Missile";
-		tooltip = "This action launches your backpack missile.";
-		onActivate = QUOTE(0 call FUNC(launch));		// _this is always true.
-		onDeactivate = "";		// _this is always false.
+        tooltip = "This action launches your backpack missile.";
+        onActivate = QUOTE(0 call FUNC(launch));        // _this is always true.
+        onDeactivate = "";        // _this is always false.
     };
     class GVAR(NextMode) {
         displayName = "Next Targeting Mode";
-		tooltip = "This action selects the next backpack missile targeting mode.";
-		onActivate = QUOTE(0 call FUNC(next_mode));		// _this is always true.
-		onDeactivate = "";		// _this is always false.
+        tooltip = "This action selects the next backpack missile targeting mode.";
+        onActivate = QUOTE(0 call FUNC(next_mode));        // _this is always true.
+        onDeactivate = "";        // _this is always false.
     };
     class GVAR(PrevMode) {
         displayName = "Previous Targeting Mode";
-		tooltip = "This action selects the previous backpack missile targeting mode.";
-		onActivate = QUOTE(0 call FUNC(previous_mode));		// _this is always true.
-		onDeactivate = "";		// _this is always false.
+        tooltip = "This action selects the previous backpack missile targeting mode.";
+        onActivate = QUOTE(0 call FUNC(previous_mode));        // _this is always true.
+        onDeactivate = "";        // _this is always false.
     };
     class GVAR(NextTarget) {
         displayName = "Select Next Target";
-		tooltip = "This action selects the next backpack missile target.";
-		onActivate = QUOTE(0 call FUNC(next_target));		// _this is always true.
-		onDeactivate = "";		// _this is always false.
+        tooltip = "This action selects the next backpack missile target.";
+        onActivate = QUOTE(0 call FUNC(next_target));        // _this is always true.
+        onDeactivate = "";        // _this is always false.
     };
     class GVAR(PrevTarget) {
         displayName = "Select Previous Target";
-		tooltip = "This action selects the previous backpack missile target.";
-		onActivate = QUOTE(0 call FUNC(previous_target));		// _this is always true.
-		onDeactivate = "";		// _this is always false.
+        tooltip = "This action selects the previous backpack missile target.";
+        onActivate = QUOTE(0 call FUNC(previous_target));        // _this is always true.
+        onDeactivate = "";        // _this is always false.
     };
     class GVAR(Reload) {
         displayName = "Reload Backpack Missile";
-		tooltip = "This action reloads the backpack missilte.";
-		onActivate = QUOTE(0 call FUNC(reload));		// _this is always true.
-		onDeactivate = "";		// _this is always false.
+        tooltip = "This action reloads the backpack missilte.";
+        onActivate = QUOTE(0 call FUNC(reload));        // _this is always true.
+        onDeactivate = "";        // _this is always false.
     };
 };
 
