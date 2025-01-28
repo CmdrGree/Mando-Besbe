@@ -80,4 +80,46 @@ if (! isNil "_target") then {
     removeMissionEventHandler ["Draw3D", _drawEH];
     deleteVehicle _missile;
     deleteVehicle _source;
+
+    if (alive _target) then {
+        [
+            _target,
+            "Retrieve Whistling Bird",
+            "",
+            "",
+            "_this distance _target < 3",
+            "_caller distance _target < 3",
+            {},
+            {},
+            {_caller addItem QGVAR(whistlingbird_item)},
+            {},
+            [],
+            5,
+            1500,
+            true,
+            false,
+            true
+        ] call BIS_fnc_holdActionAdd;
+    } else {
+        [
+            _target,
+            "Extract Whistling Bird",
+            "",
+            "",
+            "_this distance _target < 3",
+            "_caller distance _target < 3",
+            {},
+            {},
+            {_caller addItem QGVAR(whistlingbird_item)},
+            {},
+            [],
+            10,
+            1500,
+            true,
+            false,
+            true
+        ] call BIS_fnc_holdActionAdd;
+    };
+
+
 };
